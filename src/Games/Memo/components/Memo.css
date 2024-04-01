@@ -4,7 +4,7 @@
     /* border: 1px solid white; */
     margin:auto;
     /* margin-top: 40px; */
-    padding-top: 35px;
+    padding-top: 45px;
     /* margin-top: 0px; */
     /* margin-bottom: 0px; */
     /* width:140vh; */
@@ -27,7 +27,7 @@ transition: transform 0.4s;
 }
 
 .image {
-    width:100px;
+    width:90px;
     height:110px;
     border-radius:10px;
     margin:1px;
