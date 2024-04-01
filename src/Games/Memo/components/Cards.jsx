@@ -78,7 +78,7 @@ let include = false;
 
         {newImages.map((image , index) => (<>
               { include = selected.includes(image) || opened.includes(image) }
-            <div key={index} className={`divCard ${include? 'rotate' : ''}`} onClick={()=>handleClick(image)}>
+            <div key={index} className={`divCard ${include? 'rotate' : ''}`} onClick={!include?()=>handleClick(image):''}>
               <img    className='image'
                
               src={!include ? imageFront : image.split('|')[1]} alt={!include ? imageFront : image} />
