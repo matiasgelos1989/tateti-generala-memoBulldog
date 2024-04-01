@@ -63,7 +63,7 @@ export const Cards = () => {
         if (selected[0].split('|')[1] === selected[1].split('|')[1]) {
           setOpened(opened => opened.concat(selected))
         }
-        setTimeout(()=> setSelected([]), 800)
+        setTimeout(()=> setSelected([]), 1200)
       }
     }, [selected])
     

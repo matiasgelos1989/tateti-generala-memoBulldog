@@ -6,8 +6,9 @@
     box-shadow: 1px 1px 10px 2px white;
     padding:10px;
     margin:auto;
-    width:750px;
-    height:510px;
+    margin-top: 100px;
+    width:190vh;
+    height:80vh;
     align-content:center;
     justify-content:center;
     border-radius: 15px;
@@ -27,7 +28,7 @@ transition: transform 0.4s;
 
 .image {
     width:105px;
-    height:125px;
+    height:105px;
     border-radius:10px;
     margin:2px;
     transition: 0.2s;
