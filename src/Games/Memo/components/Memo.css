@@ -7,7 +7,7 @@
     padding: 20px;
     /* margin-top: 0px; */
     /* margin-bottom: 0px; */
-    width:215vh;
+    width:185vh;
     height:85vh;
     align-content:center;
     justify-content:center;
@@ -27,7 +27,7 @@ transition: transform 0.4s;
 }
 
 .image {
-    width:95px;
+    width:85px;
     height:95px;
     border-radius:10px;
     margin:1px;
