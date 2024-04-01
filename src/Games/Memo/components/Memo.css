@@ -27,10 +27,10 @@ transition: transform 0.4s;
 }
 
 .image {
-    width:90px;
+    width:80px;
     height:110px;
     border-radius:10px;
-    margin:1px;
+    margin:2px;
     transition: 0.2s;
     border:1px solid black;
     box-sizing: border-box;
