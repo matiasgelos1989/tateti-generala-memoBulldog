@@ -3,10 +3,12 @@
     flex-wrap:wrap;
     /* border: 1px solid white; */
     margin:auto;
-    margin-top: 30px;
-    margin-bottom: 5px;
-    width:185vh;
-    height:75vh;
+    margin-top: 40px;
+    padding: 20px;
+    /* margin-top: 0px; */
+    /* margin-bottom: 0px; */
+    width:215vh;
+    height:85vh;
     align-content:center;
     justify-content:center;
     border-radius: 15px;
@@ -25,8 +27,8 @@ transition: transform 0.4s;
 }
 
 .image {
-    width:80px;
-    height:75px;
+    width:95px;
+    height:95px;
     border-radius:10px;
     margin:1px;
     transition: 0.2s;
