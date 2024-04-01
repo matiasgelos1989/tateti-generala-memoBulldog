@@ -8,7 +8,7 @@
     margin:auto;
     margin-top: 150px;
     width:160vh;
-    height:70vh;
+    height:75vh;
     align-content:center;
     justify-content:center;
     border-radius: 15px;
@@ -27,13 +27,13 @@ transition: transform 0.4s;
 }
 
 .image {
-    width:60px;
-    height:75px;
+    width:75px;
+    height:90px;
     border-radius:10px;
-    margin:2px;
+    margin:1px;
     transition: 0.2s;
-    border:2px solid black;
-    box-sizing: border-box;
+    border:1px solid black;
+    /* box-sizing: border-box; */
 }
 
 .image:hover {
