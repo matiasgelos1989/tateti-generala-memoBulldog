@@ -1,0 +1,57 @@
+.divTateti{
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  /* justify-content: center; */
+  text-align: center;
+  /* align-items: center; */
+  /* justify-items: center; */
+  /* text-justify: center;  */
+  
+  border: 1px solid black;
+}
+
+
+.table {
+    width: 100px;
+    height: 100px;
+    border: 1px solid white;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    text-align: center;
+    font-size: 50px;
+  }
+
+  .button {
+    width: 100px; 
+    height:  100px;
+    background:white;
+    margin: 2px;
+    padding: 1px;
+    border: 5px solid lightgreen;
+    outline: none;
+    user-select: none;
+    font-size:35px;
+  }
+
+  .buttonWinner {
+      color:white;
+      background-color:black;
+      box-shadow:1px 1px 3px 1px yellow;
+  }
+
+  .divWinner {
+    padding:20px;
+    position:absolute;
+    width: 300px;
+    border: 5px solid lightgreen;
+    border-radius: 10px;
+    text-align: center;
+    background-color:black;
+    margin-left: 35%;
+    margin-top: -350px;
+    /* margin-right: 60%; */
+    /* margin: -250px 200px; */
+  }

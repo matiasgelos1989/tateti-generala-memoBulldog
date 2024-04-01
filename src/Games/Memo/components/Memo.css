@@ -1,0 +1,41 @@
+.divContainer {
+    background-color:rgba(189, 218, 223, 0.91);
+    display:flex;
+    flex-wrap:wrap;
+    /* border: 1px solid white; */
+    box-shadow: 1px 1px 10px 2px white;
+    padding:10px;
+    margin:auto;
+    width:750px;
+    height:510px;
+    align-content:center;
+    justify-content:center;
+    border-radius: 15px;
+    box-sizing: content-box;
+    
+}
+
+.divCard {
+    transition: transform 0.3s;
+}
+
+.rotate {
+transform: rotateY(180deg);
+transition: transform 0.4s;
+
+}
+
+.image {
+    width:105px;
+    height:125px;
+    border-radius:10px;
+    margin:2px;
+    transition: 0.2s;
+    border:2px solid black;
+    box-sizing: border-box;
+}
+
+.image:hover {
+    box-shadow:1px 1px 7px 2px rgb(247, 46, 170);
+
+}

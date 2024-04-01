@@ -1,0 +1,29 @@
+.divContainerGenerala{
+    user-select: none;
+    height: 100vh;
+}
+.tabla {
+    transition: all 1s;
+    
+}
+
+th {
+    border: 1px solid white;
+    padding: 10px;
+}
+
+
+td {
+    border : 1px solid white;
+    padding: 10px;
+}
+
+.cabeceraJugador {
+    transition: all 1s;
+    height: 22px;
+}
+
+.tablaFija {
+    min-width: 180px;
+}
+
