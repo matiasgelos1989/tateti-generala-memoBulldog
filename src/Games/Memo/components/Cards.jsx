@@ -5,16 +5,16 @@ export const Cards = () => {
     const imageFront = '../../../../public/imagesMemo/logobull.png'
 
     const images = [
-        '../../../../public/imagesMemo/gordo1.jpeg',
-        '../../../../public/imagesMemo/gordo2.jpeg',
-        '../../../../public/imagesMemo/gordo3.jpeg',
-        '../../../../public/imagesMemo/gordo4.jpeg',
-        '../../../../public/imagesMemo/gordo5.jpeg',
-        '../../../../public/imagesMemo/gordo6.jpeg',
-        '../../../../public/imagesMemo/rayo1.jpeg',
-        '../../../../public/imagesMemo/rayo2.jpeg',
-        '../../../../public/imagesMemo/rayo3.jpeg',
-        '../../../../public/imagesMemo/rayo4.jpeg'
+        '../public/imagesMemo/gordo1.jpeg',
+        '../public/imagesMemo/gordo2.jpeg',
+        '../public/imagesMemo/gordo3.jpeg',
+        '../public/imagesMemo/gordo4.jpeg',
+        '../public/imagesMemo/gordo5.jpeg',
+        '../public/imagesMemo/gordo6.jpeg',
+        '../public/imagesMemo/rayo1.jpeg',
+        '../public/imagesMemo/rayo2.jpeg',
+        '../public/imagesMemo/rayo3.jpeg',
+        '../public/imagesMemo/rayo4.jpeg'
 
         // '../../../../public/imagesMemo/crash.png',
         // '../../../../public/imagesMemo/goku.png',
