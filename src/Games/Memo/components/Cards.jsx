@@ -72,9 +72,9 @@ export const Cards = () => {
 let flip = false
 let include = false;
   return (
-    <div style={{paddingTop:'25px',height:'550px'}}>
+    <div className='divContainer' >
 
-        <div className='divContainer'>
+        {/* <div className='divContainer'> */}
 
         {newImages.map((image , index) => (<>
               { include = selected.includes(image) || opened.includes(image) }
@@ -91,10 +91,9 @@ let include = false;
                 </div>
                 </>
         ))}
-        </div>
+        {/* </div> */}
 
 
-        <div></div>
 
 
 
