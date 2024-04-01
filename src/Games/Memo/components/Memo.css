@@ -4,11 +4,11 @@
     flex-wrap:wrap;
     /* border: 1px solid white; */
     box-shadow: 1px 1px 10px 2px white;
-    padding:10px;
+    padding:20px;
     margin:auto;
-    margin-top: 100px;
-    width:190vh;
-    height:80vh;
+    margin-top: 150px;
+    width:160vh;
+    height:70vh;
     align-content:center;
     justify-content:center;
     border-radius: 15px;
@@ -27,8 +27,8 @@ transition: transform 0.4s;
 }
 
 .image {
-    width:105px;
-    height:105px;
+    width:60px;
+    height:75px;
     border-radius:10px;
     margin:2px;
     transition: 0.2s;
