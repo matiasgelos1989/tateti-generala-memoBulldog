@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import  './Memo.css'
+import imageFront from '../../../../public/imagesMemo/logobull.png';
+import gordo1 from '../../../../public/imagesMemo/gordo1.jpeg';
+import gordo2 from '../../../../public/imagesMemo/gordo2.jpeg';
+import gordo3 from '../../../../public/imagesMemo/gordo3.jpeg';
+import gordo4 from '../../../../public/imagesMemo/gordo4.jpeg';
+import gordo5 from '../../../../public/imagesMemo/gordo5.jpeg';
+import gordo6 from '../../../../public/imagesMemo/gordo6.jpeg';
+import rayo1 from '../../../../public/imagesMemo/rayo1.jpeg';
+import rayo2 from '../../../../public/imagesMemo/rayo2.jpeg';
+import rayo3 from '../../../../public/imagesMemo/rayo3.jpeg';
+import rayo4 from '../../../../public/imagesMemo/rayo4.jpeg';
+
 export const Cards = () => {
     
-    const imageFront = '../../../../public/imagesMemo/logobull.png'
+    // const imageFront = '../../../../public/imagesMemo/logobull.png'
 
     const images = [
-        '../public/imagesMemo/gordo1.jpeg',
-        '../public/imagesMemo/gordo2.jpeg',
-        '../public/imagesMemo/gordo3.jpeg',
-        '../public/imagesMemo/gordo4.jpeg',
-        '../public/imagesMemo/gordo5.jpeg',
-        '../public/imagesMemo/gordo6.jpeg',
-        '../public/imagesMemo/rayo1.jpeg',
-        '../public/imagesMemo/rayo2.jpeg',
-        '../public/imagesMemo/rayo3.jpeg',
-        '../public/imagesMemo/rayo4.jpeg'
+        gordo1,
+        gordo2,
+        gordo3,
+        gordo4,
+        gordo5,
+        gordo6,
+        rayo1,
+        rayo2,
+        rayo3,
+        rayo4
 
         // '../../../../public/imagesMemo/crash.png',
         // '../../../../public/imagesMemo/goku.png',
@@ -69,7 +81,7 @@ let include = false;
             <div key={index} className={`divCard ${include? 'rotate' : ''}`} onClick={()=>handleClick(image)}>
               <img    className='image'
                
-              src={!include ? imageFront : image} alt={!include ? imageFront : image} />
+              src={!include ? imageFront : image.split('|')[1]} alt={!include ? imageFront : image} />
 {/*               
               <img   className={!include? 'hidden rotate' : ''} 
               style={{width:'85px', height:'85px',boxShadow:'1px 2px 8px 1px black', borderRadius:'10px', margin:'5px'}} 
