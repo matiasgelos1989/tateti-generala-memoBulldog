@@ -8,7 +8,7 @@ export const Home = () => {
   return (
     <div style={{backgroundColor:'black', userSelect:'none',height:'100vh', alignContent:'center'}}>  
       <div>
-      <h1 style={{color:'white',margin:'50px', fontFamily:'monospace'}}>Elije un juego para comenzar</h1>
+      <h1 style={{color:'white',padding:'50px', fontFamily:'monospace'}}>Elije un juego para comenzar</h1>
       </div>
       <div>
       
