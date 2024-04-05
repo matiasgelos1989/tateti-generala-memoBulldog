@@ -17,7 +17,7 @@ export const Tateti = () => {
     const [respuesta2,setRespuesta2] = useState('')
     const [cantidadVictorias1,setCantidadVictorias1] = useState (0);
     const [cantidadVictorias2,setCantidadVictorias2] = useState (0);
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
   
     

@@ -182,8 +182,8 @@ export const Generala = () => {
                         {" "}
                         <td>
                           {" "}
-                          <Box  sx={{ minWidth: 80,height:'21px'}}>
-                            <FormControl  fullWidth>
+                          <Box  sx={{minWidth: 80,height:'21px',paddingRight:0}}>
+                            <FormControl fullWidth>
                               <NativeSelect  style={{color:'white',paddingLeft:30}}
                                 defaultValue={''}
                                 onChange={handleChange}
