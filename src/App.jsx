@@ -11,14 +11,15 @@ function App() {
   
 
   return (
+      <div className='divPrincipal'>
     <Routes>
         <Route path='/*' element={<div><a href='http://localhost:5173'>Ir al inicio</a></div> } />
         <Route path='/'  element={<Home />} />
         <Route path='Tateti'  element={<Tateti />} />
         <Route path='Memo'  element={<Memo />} />
         <Route path='Generala'  element={<Generala />} />
-        
     </Routes>
+        </div>
   )
 }
 

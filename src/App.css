@@ -1,7 +1,20 @@
-/* *{
-} */
-#root {
-  width: 100%;
-  color: white;
+.divPrincipal {
   text-align: center;
+}
+
+.inicialButton {
+ border: none;
+ background-color: lightblue;
+ cursor: pointer;
+ font-family: Georgia, 'Times New Roman', Times, serif;
+ font-weight: 600;
+ 
+}
+#Link {
+  transition: all 0.3s;
+}
+
+#Link:hover {
+  padding: 100px;
+    box-shadow: 1px 5px 4px 0px pink;
 }

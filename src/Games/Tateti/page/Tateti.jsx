@@ -3,15 +3,23 @@ import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Celda } from '../components/Celda';
 import '../style.css';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
 
 
 export const Tateti = () => {
     const [tablero,setTablero] = useState(Array(9).fill(null))
-    const [jugador1,setJugador1] = useState(true);
+    const [turnoJugador1,setTurnoJugador1] = useState(true);
     const [respuesta1,setRespuesta1] =useState('');
     const [respuesta2,setRespuesta2] = useState('')
     const [cantidadVictorias1,setCantidadVictorias1] = useState (0);
     const [cantidadVictorias2,setCantidadVictorias2] = useState (0);
+    const [open, setOpen] = React.useState(false);
+
+  
     
     const navigate = useNavigate();
    
@@ -27,7 +35,7 @@ export const Tateti = () => {
   
     const nombreJugador1 = `${respuesta1} ✖️ `
     const nombreJugador2 = `${respuesta2} ⭕ `
-    const turno = jugador1 ? '✖️' : '⭕';
+    const turno = turnoJugador1 ? '✖️' : '⭕';
     const [ganador,setGanador] = useState(null)
   
     const winnerCombos = [
@@ -65,7 +73,7 @@ export const Tateti = () => {
     const handleClose = () => {
           setGanador(null);
           setTablero(Array(9).fill(null));
-          setJugador1(!jugador1)
+          setTurnoJugador1(!turnoJugador1);
     }
   
     const updateTablero = (index) => {
@@ -79,20 +87,20 @@ export const Tateti = () => {
       const nuevoGanador = chequearGanador(newTablero)
       if(nuevoGanador) {
         setGanador(nuevoGanador)
-        jugador1 
+        turnoJugador1 
         ? setCantidadVictorias1(cantidadVictorias1 + 1)
         : setCantidadVictorias2(cantidadVictorias2 + 1)
       } else if(chequearFinDeJuego(newTablero)){
         setGanador(false);
        } else{
-        setJugador1(!jugador1)
+        setTurnoJugador1(!turnoJugador1)
       }
       }
 
   return (
 <div className='divTateti'>
     <h1>A jugar!</h1>
-    <h2>{jugador1 
+    <h2>{turnoJugador1 
     ? `Turno de ${nombreJugador1}`
     : `Turno de ${nombreJugador2}`
     }</h2>
@@ -113,12 +121,12 @@ export const Tateti = () => {
         </div>
       </div>
 
-      {ganador !== null
+      {/* {ganador !== null
       ?
         ganador
         ?
        <div className='divWinner' >
-          <h3>{`${jugador1 ? nombreJugador1 : nombreJugador2} has ganado la partida. Felicitaciones!!`}</h3>
+          <h3>{`${turnoJugador1 ? nombreJugador1 : nombreJugador2} has ganado la partida. Felicitaciones!!`}</h3>
             <div style={{color:'white'}}>
                 <button className="buttonWinner" onClick={handleClose} >Volver a jugar</button>
             </div>
@@ -131,8 +139,44 @@ export const Tateti = () => {
             </div>
         </div>
         :''
-      }
+      } */}
+
+<Dialog
+        open={ganador}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+     
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            {`${turnoJugador1 ? nombreJugador1 : nombreJugador2} has ganado la partida. Felicitaciones!!`}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          {/* <Button onClick={handleClose}>Jugar de nuevo</Button> */}
+          <button className="buttonWinner" onClick={handleClose} >Volver a jugar</button>
+        </DialogActions>
+      </Dialog>
       
+
+      <Dialog
+        open={ganador === false}
+        onClose={handleClose}
+        aria-labelledby="alert-empate"
+        aria-describedby="alert-empate"
+      >
+     
+        <DialogContent>
+          <DialogContentText id="alert-empate">
+            Empate. Ninguno ha ganado
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          {/* <Button onClick={handleClose}>Jugar de nuevo</Button> */}
+          <button className="buttonWinner" onClick={handleClose} >Volver a jugar</button>
+        </DialogActions>
+      </Dialog>
       </div>
 
     <button onClick={handleVolver}>Volver</button>

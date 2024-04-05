@@ -47,16 +47,19 @@ export const Cards = () => {
     const [selected,setSelected] = useState([]);
     const [opened, setOpened] = useState([]);
 
-    console.log(selected)
 
-    const handleClick = (image) => {
-      if (selected.length < 2 && selected[0] !== image) {
-        // console.log('selected' + selected)
-        console.log('image' + image)
-        setSelected(selected => selected.concat(image))
-      } 
+    
 
-    }
+    const handleClick = (image, include) => {
+
+        if (selected.length < 2 && selected[0]!== image &&  !opened.includes(image)) {
+          console.log('selected' + selected)
+          console.log('image' + image)
+          setSelected(selected => selected.concat(image))
+        } 
+      }
+
+    // }
 
     useEffect(() => {
       if(selected.length === 2) {
@@ -65,38 +68,23 @@ export const Cards = () => {
         }
         setTimeout(()=> setSelected([]), 1200)
       }
-    }, [selected])
-    
+    }, [selected])  
 
-    
-let flip = false
 let include = false;
+
   return (
-    <div className='divContainer' >
-
-        {/* <div className='divContainer'> */}
-
-        {newImages.map((image , index) => (<>
+<div className='divContainer'>
+        {newImages.map((image , index) => (<div key={index}>
               { include = selected.includes(image) || opened.includes(image) }
-            <div key={index} className={`divCard ${include? 'rotate' : ''}`} onClick={!include?()=>handleClick(image):''}>
-              <img    className='image'
-               
-              src={!include ? imageFront : image.split('|')[1]} alt={!include ? imageFront : image} />
-{/*               
-              <img   className={!include? 'hidden rotate' : ''} 
-              style={{width:'85px', height:'85px',boxShadow:'1px 2px 8px 1px black', borderRadius:'10px', margin:'5px'}} 
-              src={image} alt={image} /> */}
-              
-                
+            <div className={`divCard ${include? 'rotate' : ''}`} onClick={()=>handleClick(image, include)}>
+                <img    
+                className='image'
+                src={!include ? imageFront : image.split('|')[1]} 
+                alt={!include ? imageFront : image} />       
+            </div>
                 </div>
-                </>
         ))}
-        {/* </div> */}
+  </div>
 
-
-
-
-
-    </div>
   )
 }

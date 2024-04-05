@@ -10,7 +10,7 @@ export const Celda = ({children, updateTablero,  index}) => {
     }
 
   return (
-    <button className='button'
+    <button className='buttonGame'
       onClick={()=> handleClick()}>
         {children}
     </button>

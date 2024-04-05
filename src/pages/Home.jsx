@@ -1,20 +1,61 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import '../App.css'
 
 export const Home = () => {
 
 
   return (
-    <div style={{backgroundColor:'black', userSelect:'none',height:'100vh'}}>  
+    <div style={{backgroundColor:'black', userSelect:'none',height:'100vh', alignContent:'center'}}>  
       <div>
-      <h1 style={{color:'white'}}>Elije un juego para comenzar</h1>
+      <h1 style={{color:'white',margin:'50px', fontFamily:'monospace'}}>Elije un juego para comenzar</h1>
       </div>
-      <div style={{height:100, padding:200}}>
+      <div>
       
-      <Link to='Tateti'><button style={{boxShadow:'1px 1px 5px 1px green'}}>Tateti</button></Link>
-      <Link to='Memo'><button style={{boxShadow:'1px 1px 5px 1px green'}}>Memo</button></Link>
-      <Link to='Generala'><button style={{boxShadow:'1px 1px 5px 1px green'}}>Anotador Generala</button></Link>
+      <Link id='Link'
+      style={{
+        borderRadius: '20em 0em  0px 90px',
+        height: '80px',
+        border: 'none',
+        outline:'none',
+        // margin: '20px',
+        padding: '15px',
+        backgroundColor: 'lightblue',  
+        cursor: 'pointer',
+        // boxShadow: '1px 1px 8px 2px yellow',
+        }}
+
+     to='Tateti'><button className='inicialButton'>Tateti</button></Link>
+      <Link id='Link'
+      style={{
+        height: '80px',
+        borderLeft: '2px solid white',
+        borderRight: '2px solid white',
+        outline:'none',
+        // margin: '20px',
+        padding: '15px',
+        backgroundColor: 'lightblue',  
+        cursor: 'pointer',
+        // boxShadow: '1px 1px 8px 2px yellow',
+        
+        }}
+
+         to='Memo'><button className='inicialButton'>Memo</button></Link>
+      <Link id='Link'
+      style={{
+        borderRadius: '0px 90px  20em 0px',
+        height: '80px',
+        border: 'none',
+        outline:'none',
+        // margin: '20px',
+        padding: '15px',
+        backgroundColor: 'lightblue',  
+        cursor: 'pointer',
+        // boxShadow: '1px 1px 8px 2px yellow',
+
+        }}
+
+         to='Generala'><button className='inicialButton'>Anotador Generala</button></Link>
      
       </div>
     </div>
