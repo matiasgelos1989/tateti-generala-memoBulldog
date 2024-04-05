@@ -1,7 +1,11 @@
 .divContainerGenerala{
+    background-color: black;
+    color: white;
+    align-content: center;
+    min-width:max-content;
     user-select: none;
-    /* height: 0vh; */
-    padding: 20px;
+    display: flex;
+    /* padding: 0px 20px 0 20px; */
 }
 .tabla {
     transition: all 1s;
@@ -10,21 +14,40 @@
 
 th {
     border: 1px solid white;
-    padding: 8px;
+    padding: 2px;
 }
 
 
 td {
     border : 1px solid white;
-    padding: 10px;
+    /* padding: 10px; */
     height: 23px;
 }
 
 .cabeceraJugador {
     transition: all 1s;
 }
-/* 
+ 
 .tablaFija {
-    min-width: 180px;
-} */
+    min-width: max-content;
+    margin-left: 1px;
+    font-size: 14px;
+}
 
+select {
+    background-color: transparent;
+    outline: none;
+    border:none;
+    color:white;
+    text-align: center;
+}
+
+option {
+    color:white;
+    background-color: black;
+}
+
+.jugadoresDiv {
+    display: flex;
+    min-width: max-content;
+}
