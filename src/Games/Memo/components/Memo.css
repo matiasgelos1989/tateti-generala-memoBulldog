@@ -1,15 +1,6 @@
 .divContainer {
     display:flex;
     flex-wrap:wrap;
-    /* border: 1px solid white; */
-    margin:auto;
-    /* margin-top: 40px; */
-    padding-top: 45px;
-    /* margin-top: 0px; */
-    /* margin-bottom: 0px; */
-    /* width:140vh; */
-    height:105vh;
-    align-content:center;
     justify-content:center;
     border-radius: 15px;
     box-sizing: content-box;
@@ -17,26 +8,43 @@
 }
 
 .divCard {
-    transition: transform 0.3s;
+    cursor: pointer;
+    transition: transform 0.4s;
+    
 }
 
 .rotate {
 transform: rotateY(180deg);
-transition: transform 0.4s;
+transition: transform 0.2s;
 
 }
 
 .image {
-    width:80px;
-    height:110px;
+    width:110px;
+    height:140px;
     border-radius:10px;
     margin:2px;
     transition: 0.2s;
     border:1px solid black;
-    box-sizing: border-box;
 }
 
 .image:hover {
     box-shadow:1px 1px 7px 2px rgb(243, 191, 223);
 
+}
+
+.buttonVolver {
+    background-color: rgb(218, 154, 42);
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: all 0.4s;
+}
+
+.buttonVolver:hover {
+    background-color:  rgba(219, 163, 66, 0.008);
+    color: white;
+    border: 1px solid rgb(218, 154, 42) ;
 }

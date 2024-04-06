@@ -1,11 +1,16 @@
+html, body{
+    margin:0;
+  }
+
 .divContainerGenerala{
-    background-color: black;
+    background-color: #000000;
     color: white;
-    align-content: center;
     min-width:max-content;
     user-select: none;
     display: flex;
-    /* padding: 0px 20px 0 20px; */
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
 }
 .tabla {
     transition: all 1s;
@@ -20,8 +25,7 @@ th {
 
 td {
     border : 1px solid white;
-    /* padding: 10px; */
-    height: 23px;
+    min-height: 23;
 }
 
 .cabeceraJugador {
@@ -32,6 +36,7 @@ td {
     min-width: max-content;
     margin-left: 1px;
     font-size: 14px;
+    height: 100%;
 }
 
 select {
@@ -50,4 +55,16 @@ option {
 .jugadoresDiv {
     display: flex;
     min-width: max-content;
+}
+
+.buttonComenzarJuego {
+    outline: none;
+    background-color: rgb(112, 208, 52);
+    border-radius: 85px 0 85px 0;
+    color: rgb(8, 7, 7);
+    padding: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 0px 0px 9px 5px rgb(19, 181, 7);
 }

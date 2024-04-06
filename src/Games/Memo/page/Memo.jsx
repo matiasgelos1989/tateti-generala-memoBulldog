@@ -17,8 +17,8 @@ const handleVolver = () => {
       <Cards />
       </div>
     <div style={{backgroundColor:'black'}}>
-      <button style={{margin:'10px'}}> Comenzar </button>
-      <button style={{}} onClick={handleVolver}>Volver al inicio</button>
+      {/* <button style={{margin:'10px'}}> Comenzar </button> */}
+      <button className='buttonVolver' onClick={handleVolver}>Volver al inicio</button>
     </div>
 
     </div>

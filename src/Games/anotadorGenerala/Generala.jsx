@@ -79,15 +79,14 @@ export const Generala = () => {
         setTurn(`jugador${turno}`)
         console.log(turn)
     };
-
   return (
-    <div className="divContainerGenerala">
+    <div  className="divContainerGenerala">
       <div style={{ textAlign: "center" }}>
         {!gameInit ? (
           <div
             style={{minWidth:'max-content',minHeight:'max-content'}}
           >
-            <button onClick={agregarJugador}>Comenzar juego</button>
+            <button className="buttonComenzarJuego" onClick={agregarJugador}>Comenzar juego</button>
           </div>
         ) : (
           <div style={{display:'flex'}}>

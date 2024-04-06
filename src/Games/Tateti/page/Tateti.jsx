@@ -179,7 +179,7 @@ export const Tateti = () => {
       </Dialog>
       </div>
 
-    <button onClick={handleVolver}>Volver</button>
+    <button className='buttonVolverTateti' onClick={handleVolver}>Volver</button>
       <div></div>
     </div>
 )

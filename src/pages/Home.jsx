@@ -25,7 +25,7 @@ export const Home = () => {
         // boxShadow: '1px 1px 8px 2px yellow',
         }}
 
-     to='Tateti'><button className='inicialButton'>Tateti</button></Link>
+     to='Tateti'><button className='inicialButton'>TA TE TI</button></Link>
       <Link id='Link'
       style={{
         height: '80px',
@@ -40,7 +40,7 @@ export const Home = () => {
         
         }}
 
-         to='Memo'><button className='inicialButton'>Memo</button></Link>
+         to='Memo'><button className='inicialButton'>MEMO</button></Link>
       <Link id='Link'
       style={{
         borderRadius: '0px 90px  20em 0px',
@@ -55,7 +55,7 @@ export const Home = () => {
 
         }}
 
-         to='Generala'><button className='inicialButton'>Anotador Generala</button></Link>
+         to='Generala'><button className='inicialButton'>GENERALA</button></Link>
      
       </div>
     </div>
