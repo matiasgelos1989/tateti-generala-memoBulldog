@@ -141,7 +141,7 @@ export const Generala = () => {
                           color: "black",
                           background: "lightgreen",
                           fontWeight: 700,
-                          fontSize: 12,
+                          fontSize: 16,
                         }}
                       >
                         Total
@@ -401,6 +401,7 @@ export const Generala = () => {
                       </tr>
                       <tr>
                         <td
+                          style={{backgroundColor:'lightgreen', color:'black', fontWeight:700}}
                           name="total"
                         >
                           {                         

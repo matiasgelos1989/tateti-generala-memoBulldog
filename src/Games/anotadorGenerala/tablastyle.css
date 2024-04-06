@@ -25,18 +25,19 @@ th {
 
 td {
     border : 1px solid white;
-    min-height: 23;
+    min-height: 23px;
 }
 
 .cabeceraJugador {
+    height: 16px;
     transition: all 1s;
 }
  
 .tablaFija {
     min-width: max-content;
     margin-left: 1px;
-    font-size: 14px;
-    height: 100%;
+    font-size: 16px;
+    height: 315px;
 }
 
 select {
