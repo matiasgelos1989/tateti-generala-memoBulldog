@@ -11,6 +11,14 @@ import rayo1 from '../../../../public/imagesMemo/rayo1.jpeg';
 import rayo2 from '../../../../public/imagesMemo/rayo2.jpeg';
 import rayo3 from '../../../../public/imagesMemo/rayo3.jpeg';
 import rayo4 from '../../../../public/imagesMemo/rayo4.jpeg';
+import confetti from 'canvas-confetti';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 
 export const Cards = () => {
     
@@ -20,13 +28,13 @@ export const Cards = () => {
         gordo1,
         gordo2,
         gordo3,
-        gordo4,
-        gordo5,
-        gordo6,
-        rayo1,
-        rayo2,
-        rayo3,
-        rayo4
+        // gordo4,
+        // gordo5,
+        // gordo6,
+        // rayo1,
+        // rayo2,
+        // rayo3,
+        // rayo4
 
         // '../../../../public/imagesMemo/crash.png',
         // '../../../../public/imagesMemo/goku.png',
@@ -46,11 +54,11 @@ export const Cards = () => {
 
     const [selected,setSelected] = useState([]);
     const [opened, setOpened] = useState([]);
-
+    const [modalWinner,setModalWinner] = useState(false)
 
     
 
-    const handleClick = (image, include) => {
+    const handleClick = (image) => {
 
         if (selected.length < 2 && selected[0]!== image &&  !opened.includes(image)) {
           console.log('selected' + selected)
@@ -64,11 +72,30 @@ export const Cards = () => {
     useEffect(() => {
       if(selected.length === 2) {
         if (selected[0].split('|')[1] === selected[1].split('|')[1]) {
-          setOpened(opened => opened.concat(selected))
+          const newOpened = opened.concat(selected);
+          setOpened(newOpened)
+          console.log(`imagenes ${newImages.length}`)
+          console.log(`abiertas ${newOpened.length}`)
+          console.log(newOpened)
+          if (newImages.length === newOpened.length) {
+            setModalWinner(true)
+            confetti()
+          }
         }
         setTimeout(()=> setSelected([]), 1200)
       }
-    }, [selected])  
+    }, [selected]);
+
+    const handleClose = () => {
+      setModalWinner(false);
+    };
+
+    const handleNewGame = () => {
+      setOpened([])
+      setSelected([])
+      setNewImages(images.flatMap(item => [`1|${item}`,`2|${item}`]).sort(()=> Math.random()- 0.5))
+      setModalWinner(false);
+    }
 
 let include = false;
 
@@ -76,7 +103,7 @@ let include = false;
 <div className='divContainer'>
         {newImages.map((image , index) => (<div key={index}>
               { include = selected.includes(image) || opened.includes(image) }
-            <div className={`divCard ${include? 'rotate' : ''}`} onClick={()=>handleClick(image, include)}>
+            <div className={`divCard ${include? 'rotate' : ''}`} onClick={()=>handleClick(image)}>
                 <img    
                 className='image'
                 src={!include ? imageFront : image.split('|')[1]} 
@@ -84,6 +111,31 @@ let include = false;
             </div>
                 </div>
         ))}
+
+  
+<Dialog 
+      
+        open={modalWinner}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+         <DialogContent  sx={{width:'250px'}}>
+          <DialogContentText id="alert-dialog-description">
+            Enhorabuena, Felicitaciones!! 
+            <tr></tr>
+            Has logrado completar el desafío!!
+          </DialogContentText>
+        </DialogContent>
+      
+        <DialogActions>
+          <Button onClick={handleNewGame}>volver a Jugar</Button>
+          <Button onClick={handleClose} autoFocus>
+            Cancelar
+          </Button>
+        </DialogActions>
+      </Dialog>
+
   </div>
 
   )

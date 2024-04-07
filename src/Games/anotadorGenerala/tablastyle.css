@@ -11,10 +11,12 @@ html, body{
     flex-direction: column;
     height: 100vh;
     justify-content: center;
+
 }
 .tabla {
     transition: all 1s;
-    
+    margin: 0;
+    border: none;
 }
 
 th {

@@ -1,3 +1,9 @@
+html, body{
+    margin:0;
+    height: 90%;
+    background-color: black; 
+  }
+
 .divPrincipal {
   text-align: center;
 }
@@ -10,11 +16,12 @@
  font-weight: 600;
  
 }
+
 #Link {
   transition: all 0.3s;
 }
 
 #Link:hover {
   padding: 100px;
-    box-shadow: 1px 5px 4px 0px pink;
+  box-shadow: 1px 5px 4px 0px pink;
 }

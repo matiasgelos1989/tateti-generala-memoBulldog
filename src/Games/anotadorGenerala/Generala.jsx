@@ -10,63 +10,77 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-// import TextField from '@mui/material/TextField';
+import DialogContentText from '@mui/material/DialogContentText';
+
 
 export const Generala = () => {
   const [jugadores, setJugadores] = useState([]);
   const [open, setOpen] = useState(false);
   const [gameInit, setGameInit] = useState(false);
   const [turn,setTurn] = useState('')
-  
-  
+  const [clickComenzar,setClickComenzar] = useState(false)
+  const [cantidadJugadores,setCantidadJugadores] = useState(0)
   
   useEffect(() => {
     console.log(jugadores);
-  }, [gameInit]);
+  }, [jugadores]);
 
   useEffect(() => {
    console.log(turn)
   }, [turn])
   
 
+  const handleComenzar = () => {
+    setClickComenzar(true)
+  }
+
+  const handleClose = () => {
+    setClickComenzar(false)
+  }
   
 
   const agregarJugador = () => {
-    const cantJugadores = Number(
-      prompt("indica la cantidad de jugadores en números")
-    );
 
-    for (let index = 0; index < cantJugadores; index++) {
-      const jugador = prompt(`Nombre de Jugador ${index + 1}`);
-      jugadores.push({
-        name: jugador,
-        uno: 0,
-        dos: 0,
-        tres: 0,
-        cuatro: 0,
-        cinco: 0,
-        seis: 0,
-        escalera: 0,
-        full: 0,
-        poker: 0,
-        generala: 0,
-        dobleGenerala: 0
-      });
-    }
 
 
     setGameInit(true);
     setTurn(`jugador0`)
   };
 
+const handleChangeJugadores = (e) => {
+  const JugadoresNuevos = Array(Number(e.target.value)).fill({
+    name: '',
+    uno: 0,
+    dos: 0,
+    tres: 0,
+    cuatro: 0,
+    cinco: 0,
+    seis: 0,
+    escalera: 0,
+    full: 0,
+    poker: 0,
+    generala: 0,
+    dobleGenerala: 0
+  })
+  setJugadores(JugadoresNuevos)
+}
 
+  const handleChangeNameJugador = (e, index) => {
+    const nuevoNameJugador = e.target.value;
+
+    const newJugadores = [...jugadores];
+      newJugadores[index] = {
+        ...newJugadores[index],
+          name: nuevoNameJugador,
+        }; 
+        setJugadores(newJugadores)
+  }
 
   const handleChange = (e) => {
     const { value } = e.target
     const valorElegido = e.target.name;
       const numJugador = e.target.id;
 
-      // console.log(valorElegido);
       console.log(numJugador);
       const newJugadores = [...jugadores];
       newJugadores[numJugador] = {
@@ -77,8 +91,24 @@ export const Generala = () => {
         const turno = numJugador < jugadores.length-1 ? Number(numJugador)+1 : 0;
         setJugadores(newJugadores);
         setTurn(`jugador${turno}`)
-        console.log(turn)
     };
+    // {
+    //   name: jugador,
+    //   uno: 0,
+    //   dos: 0,
+    //   tres: 0,
+    //   cuatro: 0,
+    //   cinco: 0,
+    //   seis: 0,
+    //   escalera: 0,
+    //   full: 0,
+    //   poker: 0,
+    //   generala: 0,
+    //   dobleGenerala: 0
+    // }
+
+
+
   return (
     <div  className="divContainerGenerala">
       <div style={{ textAlign: "center" }}>
@@ -86,8 +116,56 @@ export const Generala = () => {
           <div
             style={{minWidth:'max-content',minHeight:'max-content'}}
           >
-            <button className="buttonComenzarJuego" onClick={agregarJugador}>Comenzar juego</button>
+            <button className="buttonComenzarJuego" onClick={handleComenzar}>Comenzar juego</button>
+
+            <Dialog
+        open={clickComenzar}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+     
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+
+                     <FormControl >
+                 <FormLabel id="demo-controlled-radio-buttons-group">Elija cantidad de jugadores</FormLabel>
+                 <RadioGroup
+                  
+                   row
+                   aria-labelledby="demo-controlled-radio-buttons-group"
+                   name="controlled-radio-buttons-group"
+                   onChange={handleChangeJugadores}
+                 >
+                   <FormControlLabel value={1} control={<Radio />} label={1} />
+                   <FormControlLabel value={2} control={<Radio />} label={2} />
+                   <FormControlLabel value={3} control={<Radio />} label={3} />
+                   <FormControlLabel value={4} control={<Radio />} label={4} />
+                   <FormControlLabel value={5} control={<Radio />} label={5} />
+
+                 </RadioGroup>
+              </FormControl>
+              <div style={{display:'flex', flexDirection:'column'}}>
+              {jugadores.map((jugador,index) => (
+                <TextField onChange={(e) => handleChangeNameJugador(e, index)} label={`nombre jugador ${index+1}`} variant="standard"></TextField>
+              ))
+                
+              
+              }
+            </div>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={agregarJugador} >Empezar</Button>
+
+          <Button onClick={handleClose} >Cancelar</Button>
+        </DialogActions>
+      </Dialog>
+
+
           </div>
+
+
         ) : (
           <div style={{display:'flex'}}>
             <div
@@ -97,7 +175,7 @@ export const Generala = () => {
                 <table className="tablaFija">
                   <thead >
                     <tr>
-                      <th>Puntaje / Jugador</th>
+                      <th>Jugadores</th>
                     </tr>
                   </thead>
 
@@ -133,7 +211,7 @@ export const Generala = () => {
                       <td  >Generala</td>
                     </tr>
                     <tr >
-                      <td  >Doble Generala</td>
+                      <td  >D. Generala</td>
                     </tr>
                     <tr>
                       <td
@@ -385,6 +463,7 @@ export const Generala = () => {
                           <Box  >
                             <FormControl fullWidth>
                               <select  
+                              
                                 onChange={handleChange}
                                 defaultValue={''}
                                 name='dobleGenerala'
