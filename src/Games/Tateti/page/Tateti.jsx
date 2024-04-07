@@ -1,9 +1,9 @@
 
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
+import { TextField, Box, Button } from "@mui/material";
 import { Celda } from '../components/Celda';
 import '../style.css';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -17,8 +17,7 @@ export const Tateti = () => {
     const [respuesta2,setRespuesta2] = useState('')
     const [cantidadVictorias1,setCantidadVictorias1] = useState (0);
     const [cantidadVictorias2,setCantidadVictorias2] = useState (0);
-    const [open, setOpen] = useState(false);
-
+    const [completarJugadores,setCompletarJugadores] = useState(true)
   
     
     const navigate = useNavigate();
@@ -26,12 +25,20 @@ export const Tateti = () => {
     const handleVolver = () => {
         navigate('/');
     }
+    const handleChangeNombreJugador1 =(e) =>{
+      setRespuesta1(e.target.value) 
+    } 
+    const handleChangeNombreJugador2 =(e) =>{
+      setRespuesta2(e.target.value);
+    } 
+
+    const handleClickComenzar = () => {
+      setCompletarJugadores(false);
+    }
     
-    
-  useEffect(() => {
-    setRespuesta1(prompt('Ingrese el nombre del jugador 1'))
-    setRespuesta2(prompt('Ingrese el nombre del jugador 2'))
-  }, [])
+  // useEffect(() => {
+  
+  // }, [])
   
     const nombreJugador1 = `${respuesta1} ✖️ `
     const nombreJugador2 = `${respuesta2} ⭕ `
@@ -142,6 +149,26 @@ export const Tateti = () => {
       } */}
 
 <Dialog
+  open={completarJugadores}
+  aria-labelledby="nombre-jugadores"
+  aria-describedby="nombre-jugadores"
+  >
+  <DialogContent>
+    <DialogContentText id="nombre-jugadores">
+      <div style={{display:'flex', flexDirection:'column',height:'150px', justifyContent:'space-between'}}>
+    <TextField id='setRespuesta1' onChange={handleChangeNombreJugador1} label='nombre Jugador 1'></TextField>
+    <TextField id='setRespuesta2' onChange={handleChangeNombreJugador2} label='nombre Jugador 2'></TextField>
+    </div>
+    </DialogContentText>
+  </DialogContent>
+  <DialogActions>
+    <Button variant='contained' onClick={handleClickComenzar}>Empezar </Button>
+    <Button variant='contained' onClick={handleVolver}>Volver </Button>
+  </DialogActions>
+</Dialog>
+
+
+<Dialog
         open={ganador}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
@@ -149,13 +176,12 @@ export const Tateti = () => {
       >
      
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            {`${turnoJugador1 ? nombreJugador1 : nombreJugador2} has ganado la partida. Felicitaciones!!`}
+          <DialogContentText style={{textAlign:'center'}} id="alert-dialog-description">
+            {`${turnoJugador1 ? nombreJugador1 : nombreJugador2} has ganado la partida.`} <tr></tr> Felicitaciones!!
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          {/* <Button onClick={handleClose}>Jugar de nuevo</Button> */}
-          <button className="buttonWinner" onClick={handleClose} >Volver a jugar</button>
+          <Button onClick={handleClose}>Jugar de nuevo</Button>
         </DialogActions>
       </Dialog>
       
@@ -168,13 +194,13 @@ export const Tateti = () => {
       >
      
         <DialogContent>
-          <DialogContentText id="alert-empate">
-            Empate. Ninguno ha ganado
+          <DialogContentText id="alert-empate" sx={{textAlign:'center'}}>
+            Empate <tr></tr> Ninguno ha ganado
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          {/* <Button onClick={handleClose}>Jugar de nuevo</Button> */}
-          <button className="buttonWinner" onClick={handleClose} >Volver a jugar</button>
+          <Button onClick={handleClose}>Jugar de nuevo</Button>
+          {/* <button className="buttonWinner" onClick={handleClose} >Volver a jugar</button> */}
         </DialogActions>
       </Dialog>
       </div>

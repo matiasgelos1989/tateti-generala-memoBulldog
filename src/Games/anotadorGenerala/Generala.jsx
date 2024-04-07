@@ -156,9 +156,9 @@ const handleChangeJugadores = (e) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={agregarJugador} >Empezar</Button>
 
           <Button onClick={handleClose} >Cancelar</Button>
+          <Button onClick={agregarJugador} >Empezar</Button>
         </DialogActions>
       </Dialog>
 
