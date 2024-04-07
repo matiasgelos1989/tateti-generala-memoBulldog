@@ -28,13 +28,13 @@ export const Cards = () => {
         gordo1,
         gordo2,
         gordo3,
-        // gordo4,
-        // gordo5,
-        // gordo6,
-        // rayo1,
-        // rayo2,
-        // rayo3,
-        // rayo4
+        gordo4,
+        gordo5,
+        gordo6,
+        rayo1,
+        rayo2,
+        rayo3,
+        rayo4
 
         // '../../../../public/imagesMemo/crash.png',
         // '../../../../public/imagesMemo/goku.png',
