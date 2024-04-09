@@ -38,12 +38,13 @@ td {
 .cabeceraJugador {
     height: 26px;
     transition: all 1s;
+    font-size: 20px;
 }
  
 .tablaFija {
     min-width: max-content;
     margin-left: 1px;
-    font-size: 16px;
+    font-size: 14px;
     height: 350px;
 }
 
