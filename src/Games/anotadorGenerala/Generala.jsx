@@ -97,7 +97,7 @@ const handleChangeJugadores = (e,) => {
       <div style={{ textAlign: "center" }}>
         {!gameInit ? (
           <div
-            style={{minWidth:'max-content',minHeight:'max-content'}}
+            style={{marginTop:'30vh'}}
           >
             <button className="buttonComenzarJuego" onClick={handleComenzar}>Comenzar juego</button>
 

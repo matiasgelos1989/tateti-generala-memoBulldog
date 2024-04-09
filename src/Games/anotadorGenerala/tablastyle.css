@@ -7,11 +7,11 @@ html, body{
     color: white;
     min-width:max-content;
     user-select: none;
-    display: flex;
-    
+
     /* flex-direction: column; */
     /* height: 100vh; */
-    justify-content: center;
+    /* justify-content: center; */
+    /* justify-items: center; */
 
 }
 .tabla {
