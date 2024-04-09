@@ -22,16 +22,22 @@ html, body{
 th {
     border: 1px solid white;
     padding: 2px;
+    height: 26px;
 }
 
+tr{
+    height: 35px;
+}
 
 td {
     border : 1px solid white;
-    min-height: 23px;
+    min-height: 30px;
+    width: 10cqmax;
+    min-width: 80px;
 }
 
 .cabeceraJugador {
-    height: 16px;
+    height: 26px;
     transition: all 1s;
 }
  
@@ -39,7 +45,7 @@ td {
     min-width: max-content;
     margin-left: 1px;
     font-size: 16px;
-    height: 315px;
+    height: 350px;
 }
 
 select {

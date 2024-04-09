@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from "react";
-import "./tablastyle.css";
 import { TextField, Box, Button } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import DialogContentText from '@mui/material/DialogContentText';
+import "./tablastyle.css";
 
 
 export const Generala = () => {
   const [jugadores, setJugadores] = useState([]);
-  const [open, setOpen] = useState(false);
   const [gameInit, setGameInit] = useState(false);
   const [turn,setTurn] = useState('')
   const [clickComenzar,setClickComenzar] = useState(false)
-  const [cantidadJugadores,setCantidadJugadores] = useState(0)
   
   useEffect(() => {
     console.log(jugadores);
@@ -47,7 +44,7 @@ export const Generala = () => {
     setTurn(`jugador0`)
   };
 
-const handleChangeJugadores = (e) => {
+const handleChangeJugadores = (e,) => {
   const JugadoresNuevos = Array(Number(e.target.value)).fill({
     name: '',
     uno: 0,
@@ -63,11 +60,11 @@ const handleChangeJugadores = (e) => {
     dobleGenerala: 0
   })
   setJugadores(JugadoresNuevos)
+  
 }
 
   const handleChangeNameJugador = (e, index) => {
     const nuevoNameJugador = e.target.value;
-
     const newJugadores = [...jugadores];
       newJugadores[index] = {
         ...newJugadores[index],
@@ -81,7 +78,6 @@ const handleChangeJugadores = (e) => {
     const valorElegido = e.target.name;
       const numJugador = e.target.id;
 
-      console.log(numJugador);
       const newJugadores = [...jugadores];
       newJugadores[numJugador] = {
           ...newJugadores[numJugador],
@@ -92,20 +88,7 @@ const handleChangeJugadores = (e) => {
         setJugadores(newJugadores);
         setTurn(`jugador${turno}`)
     };
-    // {
-    //   name: jugador,
-    //   uno: 0,
-    //   dos: 0,
-    //   tres: 0,
-    //   cuatro: 0,
-    //   cinco: 0,
-    //   seis: 0,
-    //   escalera: 0,
-    //   full: 0,
-    //   poker: 0,
-    //   generala: 0,
-    //   dobleGenerala: 0
-    // }
+ 
 
 
 
@@ -131,7 +114,6 @@ const handleChangeJugadores = (e) => {
                      <FormControl >
                  <FormLabel id="demo-controlled-radio-buttons-group">Elija cantidad de jugadores</FormLabel>
                  <RadioGroup
-                  
                    row
                    aria-labelledby="demo-controlled-radio-buttons-group"
                    name="controlled-radio-buttons-group"
@@ -147,7 +129,9 @@ const handleChangeJugadores = (e) => {
               </FormControl>
               <div style={{display:'flex', flexDirection:'column'}}>
               {jugadores.map((jugador,index) => (
-                <TextField onChange={(e) => handleChangeNameJugador(e, index)} label={`nombre jugador ${index+1}`} variant="standard"></TextField>
+                <TextField 
+                value={jugador.name}
+                onChange={(e) => handleChangeNameJugador(e, index)} label={`nombre jugador ${index+1}`} variant="standard"></TextField>
               ))
                 
               
@@ -169,7 +153,7 @@ const handleChangeJugadores = (e) => {
         ) : (
           <div style={{display:'flex'}}>
             <div
-              style={{ display: "flex", flex: 50, justifyContent: "center", alignContent:'space-around' }}
+              style={{ display: "flex", flex:50, justifyContent: "center", alignContent:'space-around' }}
             >
               <div style={{display:'flex', alignContent:'space-between', justifyContent:'space-around'}}>
                 <table className="tablaFija">
