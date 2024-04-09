@@ -33,7 +33,7 @@ td {
     border : 1px solid white;
     min-height: 30px;
     width: 10cqmax;
-    min-width: 80px;
+    min-width: max-content;
 }
 
 .cabeceraJugador {
