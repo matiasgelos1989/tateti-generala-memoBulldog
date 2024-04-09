@@ -165,37 +165,37 @@ const handleChangeJugadores = (e,) => {
 
                   <tbody>
                     <tr >
-                      <td  >1</td>
+                      <td className="tdFijo" >1</td>
                     </tr>
                     <tr >
-                      <td  >2</td>
+                      <td className="tdFijo" >2</td>
                     </tr>
                     <tr >
-                      <td  >3</td>
+                      <td  className="tdFijo">3</td>
                     </tr>
                     <tr >
-                      <td  >4</td>
+                      <td className="tdFijo" >4</td>
                     </tr>
                     <tr>
-                      <td>5</td>
+                      <td className="tdFijo">5</td>
                     </tr>
                     <tr >
-                      <td  >6</td>
+                      <td className="tdFijo" >6</td>
                     </tr>
                     <tr >
-                      <td  >Escalera</td>
+                      <td className="tdFijo" >Escalera</td>
                     </tr>
                     <tr >
-                      <td  >Full</td>
+                      <td className="tdFijo"  >Full</td>
                     </tr>
                     <tr >
-                      <td  >Poker</td>
+                      <td className="tdFijo" >Poker</td>
                     </tr>
                     <tr >
-                      <td  >Generala</td>
+                      <td className="tdFijo" >Generala</td>
                     </tr>
                     <tr >
-                      <td  >D. Generala</td>
+                      <td  className="tdFijo">D. Generala</td>
                     </tr>
                     <tr>
                       <td
@@ -214,7 +214,7 @@ const handleChangeJugadores = (e,) => {
               </div>
                           <div className="jugadoresDiv">
               {jugadores.map((jugador, index) => (
-                <div key={index} style={{ textAlign: "center" }}>
+                <div key={index} style={{display:'flex', textAlign: "center" }}>
                   <table className="tabla"
                   style={{
                     backgroundColor: turn === `jugador${index}` ? 'darkolivegreen' :'',
@@ -233,7 +233,7 @@ const handleChangeJugadores = (e,) => {
                     </thead>
                     <tbody>
                       <tr>
-                        <td>
+                        <td className="tdVariable">
                           <Box  >
                             <FormControl fullWidth>
                               <select  
@@ -256,7 +256,7 @@ const handleChangeJugadores = (e,) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>
+                        <td className="tdVariable"> 
                           <Box  >
                             <FormControl fullWidth>
                               <select  
@@ -279,7 +279,7 @@ const handleChangeJugadores = (e,) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>
+                        <td className="tdVariable"> 
                           <Box  >
                             <FormControl  fullWidth>
                               <select  
@@ -301,7 +301,7 @@ const handleChangeJugadores = (e,) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>
+                        <td className="tdVariable">
                           <Box  >
                             <FormControl  fullWidth>
                               <select  
@@ -323,7 +323,7 @@ const handleChangeJugadores = (e,) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>
+                        <td className="tdVariable">
                           <Box >
                             <FormControl  fullWidth>
                               <select  
@@ -345,7 +345,7 @@ const handleChangeJugadores = (e,) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>
+                        <td className="tdVariable">
                           <Box  >
                             <FormControl  fullWidth>
                               <select  
@@ -367,7 +367,7 @@ const handleChangeJugadores = (e,) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>
+                        <td className="tdVariable">
                           <Box >
                             <FormControl  fullWidth>
                               <select  
@@ -386,7 +386,7 @@ const handleChangeJugadores = (e,) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>
+                        <td className="tdVariable">
                           <Box  >
                             <FormControl  fullWidth>
                               <select  
@@ -405,7 +405,7 @@ const handleChangeJugadores = (e,) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>
+                        <td className="tdVariable"> 
                           <Box  >
                             <FormControl  fullWidth>
                               <select  
@@ -424,7 +424,7 @@ const handleChangeJugadores = (e,) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>
+                        <td className="tdVariable">
                           <Box  >
                             <FormControl  fullWidth>
                               <select  
@@ -443,7 +443,7 @@ const handleChangeJugadores = (e,) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>
+                        <td className="tdVariable">
                           <Box  >
                             <FormControl fullWidth>
                               <select  

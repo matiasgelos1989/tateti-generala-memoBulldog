@@ -8,8 +8,9 @@ html, body{
     min-width:max-content;
     user-select: none;
     display: flex;
-    flex-direction: column;
-    height: 100vh;
+    
+    /* flex-direction: column; */
+    /* height: 100vh; */
     justify-content: center;
 
 }
@@ -26,14 +27,12 @@ th {
 }
 
 tr{
-    height: 35px;
+    height: 40px;
 }
 
 td {
     border : 1px solid white;
     min-height: 30px;
-    width: 10cqmax;
-    min-width: max-content;
 }
 
 .cabeceraJugador {
@@ -63,6 +62,7 @@ option {
 
 .jugadoresDiv {
     display: flex;
+
     min-width: max-content;
 }
 
