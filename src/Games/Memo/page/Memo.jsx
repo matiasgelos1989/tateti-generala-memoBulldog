@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { Cards } from '../components/Cards';
 import '../components/Memo.css'
 
+
+
+
 export const Memo = () => {
 const navigate = useNavigate();
 

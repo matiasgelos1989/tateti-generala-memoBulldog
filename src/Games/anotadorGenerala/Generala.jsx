@@ -9,6 +9,9 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import DialogContentText from '@mui/material/DialogContentText';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 import "./tablastyle.css";
 
 
@@ -73,10 +76,11 @@ const handleChangeJugadores = (e,) => {
         setJugadores(newJugadores)
   }
 
-  const handleChange = (e) => {
+  const handleChange = (e, valorElegido, numJugador) => {
     const { value } = e.target
-    const valorElegido = e.target.name;
-      const numJugador = e.target.id;
+    console.log(e)
+    console.log(`valorElegido = ` + valorElegido)
+    console.log(`numJugador = ` + numJugador)
 
       const newJugadores = [...jugadores];
       newJugadores[numJugador] = {
@@ -129,7 +133,7 @@ const handleChangeJugadores = (e,) => {
               </FormControl>
               <div style={{display:'flex', flexDirection:'column'}}>
               {jugadores.map((jugador,index) => (
-                <TextField 
+                <TextField key={index}
                 value={jugador.name}
                 onChange={(e) => handleChangeNameJugador(e, index)} label={`nombre jugador ${index+1}`} variant="standard"></TextField>
               ))
@@ -235,67 +239,20 @@ const handleChangeJugadores = (e,) => {
                       <tr>
                         <td className="tdVariable">
                           <Box  >
-                            <FormControl fullWidth>
-                              <select  
-                                defaultValue={''}
-                                onChange={handleChange}
-                                name='uno'
-                                id={index}
-
+                            <FormControl sx={{minWidth:'80px'}} fullWidth>
+                              <Select
+                              style={{color:'white', height:'20px'}}
+                              defaultValue={''}
+                              className="tdVariable"
+                                onChange={(e) =>handleChange(e,'uno', index)}
                               >
-                                <option  value={null}></option>
-                                <option  value={1}>1</option>
-                                <option  value={2}>2</option>
-                                <option  value={3}>3</option>
-                                <option  value={4}>4</option>
-                                <option  value={5}>5</option>
-                                <option  value={0}>X</option>
-                              </select>
-                            </FormControl>
-                          </Box>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="tdVariable"> 
-                          <Box  >
-                            <FormControl fullWidth>
-                              <select  
-                                defaultValue={''}
-                                onChange={handleChange}
-                                name='dos'
-                                id={index}
-                                native
-                              >
-                                <option value={null}></option>
-                                <option value={2}>2</option>
-                                <option value={5}>4</option>
-                                <option value={6}>6</option>
-                                <option value={8}>8</option>
-                                <option value={10}>10</option>
-                                <option value={0}>X</option>
-                              </select>
-                            </FormControl>
-                          </Box>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="tdVariable"> 
-                          <Box  >
-                            <FormControl  fullWidth>
-                              <select  
-                                defaultValue={''}
-                                onChange={handleChange}
-                                name='tres'
-                                id={index}
-                              >
-                                <option value={null}></option>
-                                <option value={3}>3</option>
-                                <option value={6}>6</option>
-                                <option value={9}>9</option>
-                                <option value={12}>12</option>
-                                <option value={15}>15</option>
-                                <option value={0}>X</option>
-                              </select>
+                                <MenuItem  value={1}>1</MenuItem>
+                                <MenuItem  value={2}>2</MenuItem>
+                                <MenuItem  value={3}>3</MenuItem>
+                                <MenuItem  value={4}>4</MenuItem>
+                                <MenuItem  value={5}>5</MenuItem>
+                                <MenuItem  value={0}>X</MenuItem>
+                              </Select>
                             </FormControl>
                           </Box>
                         </td>
@@ -303,43 +260,21 @@ const handleChangeJugadores = (e,) => {
                       <tr>
                         <td className="tdVariable">
                           <Box  >
-                            <FormControl  fullWidth>
-                              <select  
+                            <FormControl sx={{minWidth:'80px'}} fullWidth>
+                              <Select
+                              style={{color:'white', height:'20px'}}
+                              className="tdVariable"
+                                label=""
                                 defaultValue={''}
-                                onChange={handleChange}
-                                name='cuatro'
-                                id={index}
+                                onChange={(e) =>handleChange(e,'dos', index)}
                               >
-                                <option value={null}></option>
-                                <option value={4}>4</option>
-                                <option value={8}>8</option>
-                                <option value={12}>12</option>
-                                <option value={16}>16</option>
-                                <option value={20}>20</option>
-                                <option value={0}>X</option>
-                              </select>
-                            </FormControl>
-                          </Box>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="tdVariable">
-                          <Box >
-                            <FormControl  fullWidth>
-                              <select  
-                                defaultValue={''}
-                                onChange={handleChange}
-                                name='cinco'
-                                id={index}
-                              >
-                                <option value={null}></option>
-                                <option value={5}>5</option>
-                                <option value={10}>10</option>
-                                <option value={15}>15</option>
-                                <option value={20}>20</option>
-                                <option value={25}>25</option>
-                                <option value={0}>X</option>
-                              </select>
+                                <MenuItem  value={2}>2</MenuItem>
+                                <MenuItem  value={4}>4</MenuItem>
+                                <MenuItem  value={6}>6</MenuItem>
+                                <MenuItem  value={8}>8</MenuItem>
+                                <MenuItem  value={10}>10</MenuItem>
+                                <MenuItem  value={0}>X</MenuItem>
+                              </Select>
                             </FormControl>
                           </Box>
                         </td>
@@ -347,40 +282,21 @@ const handleChangeJugadores = (e,) => {
                       <tr>
                         <td className="tdVariable">
                           <Box  >
-                            <FormControl  fullWidth>
-                              <select  
+                            <FormControl sx={{minWidth:'80px'}} fullWidth>
+                              <Select
+                              style={{color:'white', height:'20px'}}
+                              className="tdVariable"
+                                label=""
                                 defaultValue={''}
-                                onChange={handleChange}
-                                name='seis'
-                                id={index}
+                                onChange={(e) =>handleChange(e,'tres', index)}
                               >
-                                <option value={null}></option>
-                                <option value={6}>6</option>
-                                <option value={12}>12</option>
-                                <option value={18}>18</option>
-                                <option value={24}>24</option>
-                                <option value={30}>30</option>
-                                <option value={0}>X</option>
-                              </select>
-                            </FormControl>
-                          </Box>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="tdVariable">
-                          <Box >
-                            <FormControl  fullWidth>
-                              <select  
-                                defaultValue={''}
-                                onChange={handleChange}
-                                name='escalera'
-                                id={index}
-                              >
-                                <option value={null}></option>
-                                <option value={20}>20</option>
-                                <option value={25}>25</option>
-                                <option value={0}>X</option>
-                              </select>
+                                <MenuItem  value={3}>3</MenuItem>
+                                <MenuItem  value={6}>6</MenuItem>
+                                <MenuItem  value={9}>9</MenuItem>
+                                <MenuItem  value={12}>12</MenuItem>
+                                <MenuItem  value={15}>15</MenuItem>
+                                <MenuItem  value={0}>X</MenuItem>
+                              </Select>
                             </FormControl>
                           </Box>
                         </td>
@@ -388,37 +304,21 @@ const handleChangeJugadores = (e,) => {
                       <tr>
                         <td className="tdVariable">
                           <Box  >
-                            <FormControl  fullWidth>
-                              <select  
+                            <FormControl sx={{minWidth:'80px'}} fullWidth>
+                              <Select
+                              style={{color:'white', height:'20px'}}
+                              className="tdVariable"
+                                label=""
                                 defaultValue={''}
-                                onChange={handleChange}
-                                name='full'
-                                id={index}
+                                onChange={(e) =>handleChange(e,'cuatro', index)}
                               >
-                                <option value={null}></option>
-                                <option value={30}>30</option>
-                                <option value={35}>35</option>
-                                <option value={0}>X</option>
-                              </select>
-                            </FormControl>
-                          </Box>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="tdVariable"> 
-                          <Box  >
-                            <FormControl  fullWidth>
-                              <select  
-                                defaultValue={''}
-                                onChange={handleChange}
-                                name='poker'
-                                id={index}
-                              >
-                                <option value={null}></option>
-                                <option value={40}>40</option>
-                                <option value={45}>45</option>
-                                <option value={0}>X</option>
-                              </select>
+                                <MenuItem  value={4}>4</MenuItem>
+                                <MenuItem  value={8}>8</MenuItem>
+                                <MenuItem  value={12}>12</MenuItem>
+                                <MenuItem  value={16}>16</MenuItem>
+                                <MenuItem  value={20}>20</MenuItem>
+                                <MenuItem  value={0}>X</MenuItem>
+                              </Select>
                             </FormControl>
                           </Box>
                         </td>
@@ -426,38 +326,139 @@ const handleChangeJugadores = (e,) => {
                       <tr>
                         <td className="tdVariable">
                           <Box  >
-                            <FormControl  fullWidth>
-                              <select  
-                                defaultValue={''}
-                                onChange={handleChange}
-                                name='generala'
-                                id={index}
-                              >
-                                <option value={null}></option>
-                                <option value={50}>50</option>
-                                <option value={55}>55</option>
-                                <option value={0}>X</option>
-                              </select>
-                            </FormControl>
-                          </Box>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="tdVariable">
-                          <Box  >
-                            <FormControl fullWidth>
-                              <select  
+                            <FormControl sx={{minWidth:'80px'}} fullWidth>
+                              <Select
+                              style={{color:'white', height:'20px'}}
+                              className="tdVariable"
+                              defaultValue={''}
                               
-                                onChange={handleChange}
-                                defaultValue={''}
-                                name='dobleGenerala'
-                                id={index}
+                                onChange={(e) =>handleChange(e,'cinco', index)}
                               >
-                                <option value={null}></option>
-                                <option value={100}>100</option>
-                                <option value={105}>105</option>
-                                <option value={0}>X</option>
-                              </select>
+                                <MenuItem  value={undefined}></MenuItem>
+                                <MenuItem  value={5}>5</MenuItem>
+                                <MenuItem  value={10}>10</MenuItem>
+                                <MenuItem  value={15}>15</MenuItem>
+                                <MenuItem  value={20}>20</MenuItem>
+                                <MenuItem  value={25}>25</MenuItem>
+                                <MenuItem  value={0}>X</MenuItem>
+                              </Select>
+                            </FormControl>
+                          </Box>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="tdVariable">
+                          <Box  >
+                            <FormControl sx={{minWidth:'80px'}} fullWidth>
+                              <Select
+                              style={{color:'white', height:'20px'}}
+                              className="tdVariable"
+                              defaultValue={''}
+                              
+                                onChange={(e) =>handleChange(e,'seis', index)}
+                              >
+                                <MenuItem  value={6}>6</MenuItem>
+                                <MenuItem  value={12}>12</MenuItem>
+                                <MenuItem  value={18}>18</MenuItem>
+                                <MenuItem  value={24}>24</MenuItem>
+                                <MenuItem  value={30}>30</MenuItem>
+                                <MenuItem  value={0}>X</MenuItem>
+                              </Select>
+                            </FormControl>
+                          </Box>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="tdVariable">
+                          <Box  >
+                            <FormControl sx={{minWidth:'80px'}} fullWidth>
+                              <Select
+                              style={{color:'white', height:'20px'}}
+                              className="tdVariable"
+                                label=""
+                                defaultValue={''}
+                                onChange={(e) =>handleChange(e,'escalera', index)}
+                              >
+                                <MenuItem  value={20}>20</MenuItem>
+                                <MenuItem  value={25}>25</MenuItem>
+                                <MenuItem  value={0}>X</MenuItem>
+                              </Select>
+                            </FormControl>
+                          </Box>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="tdVariable">
+                          <Box  >
+                            <FormControl sx={{minWidth:'80px'}} fullWidth>
+                              <Select
+                              style={{color:'white', height:'20px'}}
+                              className="tdVariable"
+                                label=""
+                                defaultValue={''}
+                                onChange={(e) =>handleChange(e,'full', index)}
+                              >
+                                <MenuItem  value={30}>30</MenuItem>
+                                <MenuItem  value={35}>35</MenuItem>
+                                <MenuItem  value={0}>X</MenuItem>
+                              </Select>
+                            </FormControl>
+                          </Box>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="tdVariable">
+                          <Box  >
+                            <FormControl sx={{minWidth:'80px'}} fullWidth>
+                              <Select
+                              style={{color:'white', height:'20px'}}
+                              className="tdVariable"
+                                label=""
+                                defaultValue={''}
+                                onChange={(e) =>handleChange(e,'poker', index)}
+                              >
+                                <MenuItem  value={40}>40</MenuItem>
+                                <MenuItem  value={45}>45</MenuItem>
+                                <MenuItem  value={0}>X</MenuItem>
+                              </Select>
+                            </FormControl>
+                          </Box>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="tdVariable">
+                          <Box  >
+                            <FormControl sx={{minWidth:'80px'}} fullWidth>
+                              <Select
+                              style={{color:'white', height:'20px'}}
+                              className="tdVariable"
+                                label=""
+                                defaultValue={''}
+                                onChange={(e) =>handleChange(e,'generala', index)}
+                              >
+                                <MenuItem  value={50}>50</MenuItem>
+                                <MenuItem  value={55}>55</MenuItem>
+                                <MenuItem  value={0}>X</MenuItem>
+                              </Select>
+                            </FormControl>
+                          </Box>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="tdVariable">
+                          <Box  >
+                            <FormControl sx={{minWidth:'80px'}} fullWidth>
+                              <Select
+                              style={{color:'white', height:'20px'}}
+                              className="tdVariable"
+                                label=""
+                                defaultValue={''}
+                                onChange={(e) =>handleChange(e,'dobleGenerala', index)}
+                              >
+                                <MenuItem  value={100}>100</MenuItem>
+                                <MenuItem  value={105}>105</MenuItem>
+                                <MenuItem  value={0}>X</MenuItem>
+                              </Select>
                             </FormControl>
                           </Box>
                         </td>
