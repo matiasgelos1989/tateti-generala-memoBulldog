@@ -49,12 +49,11 @@ export const Cards = () => {
     ]
 
    const [newImages,setNewImages] = useState(images.flatMap(item => [`1|${item}`,`2|${item}`]).sort(()=> Math.random()- 0.5))
-   
 
     const [selected,setSelected] = useState([]);
     const [opened, setOpened] = useState([]);
     const [modalWinner,setModalWinner] = useState(false)
-
+    const [imgLoad, setImgLoad] = useState(false)
     
 
     const handleClick = (image) => {
@@ -66,7 +65,11 @@ export const Cards = () => {
         } 
       }
 
-    // }
+    useEffect(() => {
+        console.log(imgLoad)
+    }, [imgLoad])
+    
+
 
     useEffect(() => {
       if(selected.length === 2) {
@@ -77,11 +80,11 @@ export const Cards = () => {
           console.log(`abiertas ${newOpened.length}`)
           console.log(newOpened)
           if (newImages.length === newOpened.length) {
-            setModalWinner(true)
             confetti()
+            setModalWinner(true)
           }
         }
-        setTimeout(()=> setSelected([]), 1200)
+        if(imgLoad ) setTimeout(()=> setSelected([]), 500)
       }
     }, [selected]);
 
@@ -105,6 +108,7 @@ let include = false;
             <div className={`divCard ${include? 'rotate' : ''}`} onClick={()=>handleClick(image)}>
                 <img    
                 className='image'
+                onLoad={(e)=> setImgLoad(true)}
                 src={!include ? imageFront : image.split('|')[1]} 
                 alt={!include ? imageFront : image} />       
             </div>
