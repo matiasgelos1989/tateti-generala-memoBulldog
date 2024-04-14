@@ -162,8 +162,8 @@ export const Tateti = () => {
     </DialogContentText>
   </DialogContent>
   <DialogActions>
-    <Button variant='contained' onClick={handleClickComenzar}>Empezar </Button>
     <Button variant='contained' onClick={handleVolver}>Volver </Button>
+    <Button variant='contained' onClick={handleClickComenzar}>Empezar </Button>
   </DialogActions>
 </Dialog>
 

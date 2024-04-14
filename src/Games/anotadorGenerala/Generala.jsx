@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { TextField, Box, Button } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -9,7 +9,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import DialogContentText from '@mui/material/DialogContentText';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import "./tablastyle.css";
@@ -21,15 +20,6 @@ export const Generala = () => {
   const [turn,setTurn] = useState('')
   const [clickComenzar,setClickComenzar] = useState(false)
   
-  useEffect(() => {
-    console.log(jugadores);
-  }, [jugadores]);
-
-  useEffect(() => {
-   console.log(turn)
-  }, [turn])
-  
-
   const handleComenzar = () => {
     setClickComenzar(true)
   }
@@ -40,11 +30,8 @@ export const Generala = () => {
   
 
   const agregarJugador = () => {
-
-
-
     setGameInit(true);
-    setTurn(`jugador0`)
+    setTurn(`jugador0`);
   };
 
 const handleChangeJugadores = (e,) => {
@@ -78,9 +65,6 @@ const handleChangeJugadores = (e,) => {
 
   const handleChange = (e, valorElegido, numJugador) => {
     const { value } = e.target
-    console.log(e)
-    console.log(`valorElegido = ` + valorElegido)
-    console.log(`numJugador = ` + numJugador)
 
       const newJugadores = [...jugadores];
       newJugadores[numJugador] = {
@@ -92,9 +76,6 @@ const handleChangeJugadores = (e,) => {
         setJugadores(newJugadores);
         setTurn(`jugador${turno}`)
     };
- 
-
-
 
   return (
     <div  className="divContainerGenerala">
@@ -114,22 +95,20 @@ const handleChangeJugadores = (e,) => {
      
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-
-                     <FormControl >
-                 <FormLabel id="demo-controlled-radio-buttons-group">Elija cantidad de jugadores</FormLabel>
-                 <RadioGroup
-                   row
-                   aria-labelledby="demo-controlled-radio-buttons-group"
-                   name="controlled-radio-buttons-group"
-                   onChange={handleChangeJugadores}
-                 >
-                   <FormControlLabel value={1} control={<Radio />} label={1} />
-                   <FormControlLabel value={2} control={<Radio />} label={2} />
-                   <FormControlLabel value={3} control={<Radio />} label={3} />
-                   <FormControlLabel value={4} control={<Radio />} label={4} />
-                   <FormControlLabel value={5} control={<Radio />} label={5} />
-
-                 </RadioGroup>
+                    <FormControl >
+                    <FormLabel id="demo-controlled-radio-buttons-group">Elija cantidad de jugadores</FormLabel>
+                    <RadioGroup
+                      row
+                      aria-labelledby="demo-controlled-radio-buttons-group"
+                      name="controlled-radio-buttons-group"
+                      onChange={handleChangeJugadores}
+                    >
+                      <FormControlLabel value={1} control={<Radio />} label={1} />
+                      <FormControlLabel value={2} control={<Radio />} label={2} />
+                      <FormControlLabel value={3} control={<Radio />} label={3} />
+                      <FormControlLabel value={4} control={<Radio />} label={4} />
+                      <FormControlLabel value={5} control={<Radio />} label={5} />
+                    </RadioGroup>
               </FormControl>
               <div style={{display:'flex', flexDirection:'column'}}>
               {jugadores.map((jugador,index) => (
@@ -137,23 +116,16 @@ const handleChangeJugadores = (e,) => {
                 value={jugador.name}
                 onChange={(e) => handleChangeNameJugador(e, index)} label={`nombre jugador ${index+1}`} variant="standard"></TextField>
               ))
-                
-              
               }
             </div>
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-
+        <DialogActions onSubmit={agregarJugador}>
           <Button onClick={handleClose} >Cancelar</Button>
           <Button onClick={agregarJugador} >Empezar</Button>
         </DialogActions>
       </Dialog>
-
-
           </div>
-
-
         ) : (
           <div style={{display:'flex'}}>
             <div
@@ -222,7 +194,6 @@ const handleChangeJugadores = (e,) => {
                   <table className="tabla"
                   style={{
                     backgroundColor: turn === `jugador${index}` ? 'darkolivegreen' :'',
-                    
                     }}>
                     <thead>
                       <tr>
