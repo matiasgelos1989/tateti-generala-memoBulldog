@@ -59,16 +59,13 @@ export const Cards = () => {
     const handleClick = (image) => {
 
         if (selected.length < 2 && selected[0]!== image &&  !opened.includes(image)) {
-          console.log('selected' + selected)
-          console.log('image' + image)
+          // console.log('selected' + selected)
+          // console.log('image' + image)
           setSelected(selected => selected.concat(image))
         } 
       }
 
-    useEffect(() => {
-        console.log(imgLoad)
-    }, [imgLoad])
-    
+ 
 
 
     useEffect(() => {
@@ -76,16 +73,16 @@ export const Cards = () => {
         if (selected[0].split('|')[1] === selected[1].split('|')[1]) {
           const newOpened = opened.concat(selected);
           setOpened(newOpened)
-          console.log(`imagenes ${newImages.length}`)
-          console.log(`abiertas ${newOpened.length}`)
-          console.log(newOpened)
+          setSelected([])
+          // console.log(`imagenes ${newImages.length}`)
+          // console.log(`abiertas ${newOpened.length}`)
+          // console.log(newOpened)
           if (newImages.length === newOpened.length) {
             confetti()
             setModalWinner(true)
           }
-        }
-        if(imgLoad ) setTimeout(()=> setSelected([]), 500)
-      }
+        } else setTimeout(()=> setSelected([]), 350)
+    }
     }, [selected]);
 
     const handleClose = () => {
