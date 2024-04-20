@@ -15,7 +15,7 @@
 
 .rotate {
 transform: rotateY(180deg);
-transition: transform 0.1s;
+transition: transform 0.2s;
 
 }
 
