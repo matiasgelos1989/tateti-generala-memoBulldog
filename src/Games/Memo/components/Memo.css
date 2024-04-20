@@ -9,13 +9,13 @@
 
 .divCard {
     cursor: pointer;
-    transition: transform 0.4s;
+    transition: transform 0.5s;
     
 }
 
 .rotate {
 transform: rotateY(180deg);
-transition: transform 0.05s;
+transition: transform 0.1s;
 
 }
 

@@ -79,9 +79,9 @@ export const Cards = () => {
           // console.log(newOpened)
           if (newImages.length === newOpened.length) {
             confetti()
-            setModalWinner(true)
+            setTimeout(()=>setModalWinner(true),200)
           }
-        } else setTimeout(()=> setSelected([]), 350)
+        } else setTimeout(()=> setSelected([]), 600)
     }
     }, [selected]);
 
