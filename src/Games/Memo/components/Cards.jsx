@@ -65,9 +65,6 @@ export const Cards = () => {
         } 
       }
 
- 
-
-
     useEffect(() => {
       if(selected.length === 2) {
         if (selected[0].split('|')[1] === selected[1].split('|')[1]) {
@@ -79,9 +76,9 @@ export const Cards = () => {
           // console.log(newOpened)
           if (newImages.length === newOpened.length) {
             confetti()
-            setTimeout(()=>setModalWinner(true),200)
+            setTimeout(()=>setModalWinner(true),300)
           }
-        } else setTimeout(()=> setSelected([]), 600)
+        } else setTimeout(()=> setSelected([]), 500)
     }
     }, [selected]);
 
@@ -102,12 +99,18 @@ let include = false;
 <div className='divContainer'>
         {newImages.map((image , index) => (<div key={index}>
               { include = selected.includes(image) || opened.includes(image) }
-            <div className={`divCard ${include? 'rotate' : ''}`} onClick={()=>handleClick(image)}>
+            <div className={`divCard ${include? 'rotate' : ''}`} onClick={()=>handleClick(image)} >
+                {!include ?
                 <img    
                 className='image'
-                onLoad={(e)=> setImgLoad(true)}
-                src={!include ? imageFront : image.split('|')[1]} 
-                alt={!include ? imageFront : image} />       
+                src={imageFront} 
+                alt={imageFront} />
+                :
+                <img    
+                className='image'
+                src={image.split('|')[1]} 
+                alt={image} />
+                }   
             </div>
                 </div>
         ))}
